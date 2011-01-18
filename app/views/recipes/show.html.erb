@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <b>Ingredients:</b>
+  <%= @recipe.ingredients %>
+</p>
+
+<p>
+  <b>Instructions:</b>
+  <%= @recipe.instructions %>
+</p>
+
+<p>
+  <b>Preparation time (minutes):</b>
+  <%= @recipe.preparation_time %> minute(s)
+</p>
+
+<p>
+  <b>Servings:</b>
+  <%= @recipe.servings %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= link_to 'Show', @recipe.user %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @recipe.tags.map { |t| t.name }.join(", ") %>
+</p>
+
+<h2>Comments</h2>
+<%= render :partial => "comments/comment",
+           :collection => @recipe.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

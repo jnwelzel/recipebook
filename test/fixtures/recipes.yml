@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  ingredients: MyString
+  preparation_time: 1
+  servings: MyString
+  user: 
+
+two:
+  name: MyString
+  description: MyString
+  ingredients: MyString
+  preparation_time: 1
+  servings: MyString
+  user: 
