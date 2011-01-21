@@ -1,4 +1,8 @@
 Recipebook::Application.routes.draw do
+  devise_for :users
+  
+  resources :users#, :only => :show
+
   resources :recipes do
     resources :comments
   end

@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /recipes
   # GET /recipes.xml
   def index
@@ -40,17 +43,20 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.xml
   def create
-    @recipe = Recipe.new(params[:recipe])
-
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to(@recipe, :notice => 'Recipe was successfully created.') }
-        format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
-      end
-    end
+    @user = current_user
+    @recipe = @user.recipes.create(params[:recipe])
+    
+    redirect_to(@recipe, :notice => 'Recipe was successfully created.')
+    
+#    respond_to do |format|
+#      if @recipe.save
+#        format.html { redirect_to(@recipe, :notice => 'Recipe was successfully created.') }
+#        format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+#      else
+#        format.html { render :action => "new" }
+#        format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
+#      end
+#    end
   end
 
   # PUT /recipes/1

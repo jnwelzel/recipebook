@@ -29,3 +29,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+# Bundle gem needed for Devise
+gem "devise", "1.1.5"
+
+gem 'friendly_id', '3.2.0'

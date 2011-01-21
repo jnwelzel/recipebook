@@ -1,4 +1,5 @@
-<%= form_for(@recipe) do |f| %>
+<% @recipe.tags.build %>
+<%= form_for(@recipe) do |recipe_form| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -12,30 +13,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= recipe_form.label :name %><br />
+    <%= recipe_form.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= recipe_form.label :description %><br />
+    <%= recipe_form.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :ingredients %><br />
-    <%= f.text_area :ingredients %>
+    <%= recipe_form.label :ingredients %><br />
+    <%= recipe_form.text_area :ingredients %>
   </div>
   <div class="field">
-    <%= f.label :instructions %><br />
-    <%= f.text_area :instructions %>
+    <%= recipe_form.label :instructions %><br />
+    <%= recipe_form.text_area :instructions %>
   </div>
   <div class="field">
-    <%= f.label :preparation_time %><br />
-    <%= f.text_field :preparation_time %>
+    <%= recipe_form.label :preparation_time %><br />
+    <%= recipe_form.text_field :preparation_time %>
   </div>
   <div class="field">
-    <%= f.label :servings %><br />
-    <%= f.text_field :servings %>
+    <%= recipe_form.label :servings %><br />
+    <%= recipe_form.text_field :servings %>
   </div>
+  <h2>Tags</h2>
+  <%= render :partial => 'tags/form',
+             :locals => {:form => recipe_form} %>
   <div class="actions">
-    <%= f.submit %>
+    <%= recipe_form.submit %>
   </div>
 <% end %>

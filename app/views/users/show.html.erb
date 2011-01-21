@@ -1,20 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<h1><%= @user.name %></h1>
+<p><%= @user.email %></p>
+<br />
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+<p><%= link_to 'Edit', edit_user_registration_path %></p>
+<p><%= link_to 'List of Users', users_path %></p>
 
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h3><%= @user.name %>'s Recipes</h3>
+<table>
+<% @user.recipes.each do |recipe| %>
+  <tr>
+    <td><%= link_to recipe.name, recipe %></td>
+    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+    <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

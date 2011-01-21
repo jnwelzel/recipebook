@@ -7,7 +7,7 @@
     <th>Ingredients</th>
     <th>Preparation time</th>
     <th>Servings</th>
-    <th>User</th>
+    <th>Author</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,7 +20,7 @@
     <td><%= recipe.ingredients %></td>
     <td><%= recipe.preparation_time %></td>
     <td><%= recipe.servings %></td>
-    <td><%= recipe.user %></td>
+    <td><%= recipe.user.name %></td>
     <td><%= link_to 'Show', recipe %></td>
     <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
     <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
