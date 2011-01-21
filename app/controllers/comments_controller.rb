@@ -9,10 +9,14 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    @recipe = @Recipe.find(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
     @comment = @recipe.comments.find(params[:id])
-    @comment.destroy
-    redirect_to recipe_path(@recipe)
+    if @comment.user_id == current_user.id
+      @comment.destroy
+      redirect_to(recipe_path(@recipe), :notice => 'Comment was successfully deleted.')
+    else
+      redirect_to(recipe_path(@recipe), :alert => 'You do not have permission to perform this operation.')
+    end
   end
 
 end
