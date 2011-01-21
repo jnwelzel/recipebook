@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @recipe.name %>
@@ -32,19 +30,19 @@
 
 <p>
   <b>Author:</b>
-  <%= link_to 'Show', @recipe.user %>
+  <%= link_to @recipe.user.name, @recipe.user %>
 </p>
 
 <p>
   <b>Tags:</b>
   <%= @recipe.tags.map { |t| t.name }.join(", ") %>
 </p>
-
-<h2>Comments</h2>
+<hr/>
+<h2><%= @recipe.comments.size %> Comment(s)</h2>
 <%= render :partial => "comments/comment",
            :collection => @recipe.comments %>
 
-<h2>Add a comment:</h2>
+<h2>Post a comment:</h2>
 <%= render "comments/form" %>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |

@@ -13,9 +13,10 @@
 <div class="container">
   
   <ul class="hmenu">
+    <%= link_to 'Home', '/' %>
+    |
     <%= render 'devise/menu/registration_items' %>
     <%= render 'devise/menu/login_items' %>
-    <%= link_to 'Home', '/' %>
   </ul>
   
   <% if notice %>
