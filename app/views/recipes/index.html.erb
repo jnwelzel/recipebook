@@ -1,32 +1,35 @@
-<h1>Listing recipes</h1>
+<h1>Listing recipes (<%= @recipes.size %>)</h1>
+<% if @recipes.size > 0 %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Ingredients</th>
+      <th>Preparation time</th>
+      <th>Servings</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Ingredients</th>
-    <th>Preparation time</th>
-    <th>Servings</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.name %></td>
-    <td><%= recipe.description %></td>
-    <td><%= recipe.ingredients %></td>
-    <td><%= recipe.preparation_time %></td>
-    <td><%= recipe.servings %></td>
-    <td><%= recipe.user.name %></td>
-    <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%= recipe.name %></td>
+      <td><%= recipe.description %></td>
+      <td><%= recipe.ingredients %></td>
+      <td><%= recipe.preparation_time %></td>
+      <td><%= recipe.servings %></td>
+      <td><%= recipe.user.name %></td>
+      <td><%= link_to 'Show', recipe %></td>
+      <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+      <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <div class="notice">You haven't shared any recipes yet. Why not get started? Just click on the link below.</div>
 <% end %>
-</table>
 
 <br />
 

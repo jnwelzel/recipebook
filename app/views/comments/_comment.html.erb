@@ -1,17 +1,21 @@
+<div class="box">
 <p>
-  <b>Author:</b>
-  <%= comment.user.name %>
+  <%= image_tag comment.user.photo.url(:thumb) %>
+  <%= link_to comment.user.name, comment.user %>
+  <b>says:</b>
+  <br/>
+  <%= comment.created_at %>
 </p>
  
-<p>
-  <b>Comment:</b>
+<blockquote>
   <%= comment.body %>
-</p>
+</blockquote>
 
-<p>
 <% if comment.user_id == current_user.id %>
-  <%= link_to 'Destroy Comment', [comment.recipe, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
+  <p>
+    <%= link_to 'Remove Comment', [comment.recipe, comment],
+                 :confirm => 'Are you sure?',
+                 :method => :delete %>
+  </p>
 <% end %>
-</p>
+</div>

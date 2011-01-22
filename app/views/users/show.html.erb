@@ -1,20 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @user.photo.url(:thumb) %>
+<%= image_tag @user.photo.url %>
 <h1><%= @user.name %></h1>
 <p><%= @user.email %></p>
+<p>Joined in <%= @user.created_at %></p>
 <br />
 
 <p><%= link_to 'Edit', edit_user_registration_path %></p>
 <p><%= link_to 'List of Users', users_path %></p>
 
-<h3><%= @user.name %>'s Recipes</h3>
-<table>
-<% @user.recipes.each do |recipe| %>
-  <tr>
-    <td><%= link_to recipe.name, recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<h3><%= @user.name %>'s Recipes (<%= @user.recipes.size %>)</h3>
+<% if @user.recipes.size > 0 %>
+  <table>
+    <% @user.recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe %></td>
+        <% if recipe.user_id == current_user.id %>
+          <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+          <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>  
+  <div class="notice"> No recipes shared yet. </div>
 <% end %>
-</table>
+

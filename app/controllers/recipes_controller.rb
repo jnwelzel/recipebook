@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_author, :only => [:destroy, :edit, :update]
 
   # GET /recipes
   # GET /recipes.xml
@@ -84,6 +85,14 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(recipes_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  #Impedir que usuarios mexam na receita de outros usuarios
+  def authenticate_author
+    @recipe = Recipe.find(params[:id])
+    if @recipe.user_id != current_user.id
+      redirect_to(recipe_path(@recipe), :alert => 'You do not have permission to perform this operation.')
     end
   end
 end
