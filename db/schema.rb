@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110121012336) do
+ActiveRecord::Schema.define(:version => 20110122032207) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(:version => 20110121012336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "instructions"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "slugs", :force => true do |t|
@@ -66,6 +69,9 @@ ActiveRecord::Schema.define(:version => 20110121012336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

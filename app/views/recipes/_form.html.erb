@@ -1,5 +1,5 @@
 <% @recipe.tags.build %>
-<%= form_for(@recipe) do |recipe_form| %>
+<%= form_for(@recipe, :html => { :multipart => true }) do |recipe_form| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -35,6 +35,10 @@
   <div class="field">
     <%= recipe_form.label :servings %><br />
     <%= recipe_form.text_field :servings %>
+  </div>
+  <div class="field">
+    <%= recipe_form.label :picture %><br />
+    <%= recipe_form.file_field :photo %>
   </div>
   <h2>Tags</h2>
   <%= render :partial => 'tags/form',

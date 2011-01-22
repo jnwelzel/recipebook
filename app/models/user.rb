@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   
   has_friendly_id :name, :use_slug => true, :strip_non_ascii => true
+  has_attached_file :photo,
+                    :default_url => "/images/default_user_picture.png",
+                    :styles => {
+                      :normal  => "128x128>",
+                      :thumb => "100x100#" }
 
   validates :name, :presence => true, :length => {:minimum => 1, :maximum => 40},
                    :uniqueness => true

@@ -34,3 +34,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem "devise", "1.1.5"
 
 gem 'friendly_id', '3.2.0'
+
+gem 'paperclip', '2.3.8'
