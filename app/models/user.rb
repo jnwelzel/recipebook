@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  acts_as_tagger
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -34,4 +37,5 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_many :comments
+  
 end

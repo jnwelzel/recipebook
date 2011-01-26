@@ -1,5 +1,4 @@
 class Recipe < ActiveRecord::Base
-  acts_as_taggable_on :tags
   
   validates :name, :presence => true,
                    :length => {:minimum => 3, :maximum => 60}
@@ -12,6 +11,8 @@ class Recipe < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
  
+  acts_as_taggable_on :tags
+
   has_attached_file :photo,
                     :default_url => "/images/default_recipe_picture.png",
                     :styles => {

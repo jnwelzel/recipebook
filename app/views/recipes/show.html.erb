@@ -37,7 +37,9 @@
 
 <p>
   <b>Tags:</b>
-  <%= @recipe.tag_list %>
+  <% @recipe.tag_list.each do |t| %>
+    <%= link_to t, tag_path(t) %>
+  <% end %>
 </p>
 <hr/>
 <h3><%= @recipe.comments.size %> Comment(s)</h3>

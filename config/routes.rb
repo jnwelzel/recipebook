@@ -6,6 +6,8 @@ Recipebook::Application.routes.draw do
   resources :recipes do
     resources :comments
   end
+  
+  resources :tags
 
   get "home/index"
 
