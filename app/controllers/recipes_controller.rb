@@ -73,7 +73,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to(recipes_url) }
+      format.html { redirect_to(recipes_url, :notice => 'Recipe was successfully removed from Favorites.') }
       format.xml  { head :ok }
     end
   end

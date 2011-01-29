@@ -1,13 +1,14 @@
 Recipebook::Application.routes.draw do
   devise_for :users
   
-  resources :users#, :only => :show
+  resources :users
 
   resources :recipes do
     resources :comments
   end
   
   resources :tags
+  resources :favorites
 
   get "home/index"
 

@@ -9,5 +9,5 @@ doc/app
 *.swp
 *~
 .DS_Store
-
+vendor/plugins/*
 

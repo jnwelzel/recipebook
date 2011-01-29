@@ -37,5 +37,11 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_many :comments
+  has_many :favorites
+  has_many :favorite_recipes, :through => :favorites, :source => :recipe
+  
+  def to_s
+    self.name
+  end
   
 end

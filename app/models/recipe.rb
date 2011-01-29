@@ -10,6 +10,8 @@ class Recipe < ActiveRecord::Base
                    
   belongs_to :user
   has_many :comments, :dependent => :destroy
+  has_many :favorites
+  has_many :favorees, :through => :favorites, :source => :user
  
   acts_as_taggable_on :tags
 
@@ -24,6 +26,9 @@ class Recipe < ActiveRecord::Base
                                             :message => ": choose a valid format such as jpeg, png or gif."
                                             
   validates_attachment_size :photo, :less_than => 300.kilobytes,
-                                    :message => ": file is too big, please keep it under 300kb"                                            
+                                    :message => ": file is too big, please keep it under 300kb"
   
+  def to_s
+    self.name
+  end
 end

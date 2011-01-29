@@ -41,6 +41,13 @@
     <%= link_to t, tag_path(t) %>
   <% end %>
 </p>
+
+<% if !current_user.favorites.exists?(:recipe_id =>@recipe.id) %>
+  <%= button_to 'Add to Favorites', {:controller => "favorites", :id => @recipe}, :method => :post %>
+<% else %>
+  <%= button_to 'Remove from Favorites', @favorite=current_user.favorites.find_by_recipe_id(@recipe), :method => :delete, :confirm => 'Are you sure?' %>
+<% end %>
+
 <hr/>
 <h3><%= @recipe.comments.size %> Comment(s)</h3>
 <%= render :partial => "comments/comment",
