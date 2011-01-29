@@ -85,9 +85,4 @@ class RecipesController < ApplicationController
       redirect_to(recipe_path(@recipe), :alert => 'You do not have permission to perform this operation.')
     end
   end
-  
-  def rate
-    @recipe = Recipe.find(params[:id])
-#    @recipe
-  end
 end

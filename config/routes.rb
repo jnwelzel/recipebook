@@ -9,6 +9,7 @@ Recipebook::Application.routes.draw do
   
   resources :tags
   resources :favorites
+  resources :ratings
 
   get "home/index"
 
