@@ -1,0 +1,7 @@
+<% @rating = @recipe.rated_by?(current_user) %>
+<% if !@rating.nil? %>
+  Your rating: <%= @rating.rate.score %>
+<% else %>
+  Your rating: <%= select_tag(:recipe_rating, options_for_select(1..5)) %>
+  <%= button_to 'Submit rating', {:action => "rate", :id => @recipe}, :method => :post %>
+<% end %>

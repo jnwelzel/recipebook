@@ -14,6 +14,8 @@ class Recipe < ActiveRecord::Base
   has_many :favorees, :through => :favorites, :source => :user
  
   acts_as_taggable_on :tags
+  
+  acts_as_rateable
 
   has_attached_file :photo,
                     :default_url => "/images/default_recipe_picture.png",
