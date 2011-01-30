@@ -1,5 +1,7 @@
-<% if !current_user.favorites.exists?(:recipe_id =>@recipe.id) %>
-  <%= button_to 'Add to favorites', {:controller => "favorites", :id => @recipe}, :method => :post %>
-<% else %>
-  <%= button_to 'Remove from favorites', @favorite=current_user.favorites.find_by_recipe_id(@recipe), :method => :delete, :confirm => 'Are you sure?' %>
+<% if current_user %>
+  <% if !current_user.favorites.exists?(:recipe_id =>@recipe.id) %>
+    <%= button_to 'Add to favorites', {:controller => "favorites", :id => @recipe}, :method => :post %>
+  <% else %>
+    <%= button_to 'Remove from favorites', @favorite=current_user.favorites.find_by_recipe_id(@recipe), :method => :delete, :confirm => 'Are you sure?' %>
+  <% end %>
 <% end %>

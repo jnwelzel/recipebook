@@ -1,12 +1,19 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = current_user.recipes.tag_counts_on(:tags)
+    if current_user
+      @tags = current_user.recipes.tag_counts_on(:tags)
+    else
+      redirect_to "/"
+    end
   end
 
   def show
-    #@recipes = Recipe.tagged_with(params[:id], :on => :tags)
-    @recipes = Recipe.tagged_with(params[:id], :on => :tags).where("user_id=?", current_user.id)
+    if current_user
+      @recipes = Recipe.tagged_with(params[:id], :on => :tags).where("user_id=?", current_user.id)
+    else
+      @recipes = Recipe.tagged_with(params[:id], :on => :tags)
+    end
   end
 
 end

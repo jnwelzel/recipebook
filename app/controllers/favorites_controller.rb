@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  
+  before_filter :authenticate_user!
 
   def index
     #assim eh menos eficiente, executa uma query pra cada favorito do cara
