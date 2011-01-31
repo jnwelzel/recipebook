@@ -10,9 +10,9 @@ Recipebook::Application.routes.draw do
   resources :tags
   resources :favorites
   resources :ratings
-
+  
   get "home/index"
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

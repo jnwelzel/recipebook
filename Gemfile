@@ -39,4 +39,4 @@ gem 'paperclip', '2.3.8'
 
 gem 'acts-as-taggable-on', '2.0.6'
 
-#gem 'acts_as_taggable_on_steroids', '1.2'
+gem 'sunspot_rails', '1.2.rc4'

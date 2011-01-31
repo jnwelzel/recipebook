@@ -6,7 +6,14 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.xml
   def index
-    @recipes = current_user.recipes
+    if(!params[:q].nil?)
+      @recipes = Recipe.solr_search do |s|
+                   s.keywords params[:q]
+                 end
+      @recipes = @recipes.results
+    else
+      @recipes = current_user.recipes
+    end
 
     respond_to do |format|
       format.html # index.html.erb

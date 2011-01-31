@@ -10,4 +10,5 @@ doc/app
 *~
 .DS_Store
 vendor/plugins/*
+solr/data
 

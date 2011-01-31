@@ -30,6 +30,13 @@ class Recipe < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 300.kilobytes,
                                     :message => ": file is too big, please keep it under 300kb"
   
+  searchable :auto_index => true, :auto_remove => true do
+    text :name, :default_boost => 2.0
+    text :description
+    text :instructions
+    text :ingredients
+  end
+  
   def to_s
     self.name
   end
