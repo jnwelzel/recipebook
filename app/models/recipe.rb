@@ -31,8 +31,9 @@ class Recipe < ActiveRecord::Base
                                     :message => ": file is too big, please keep it under 300kb"
   
   searchable :auto_index => true, :auto_remove => true do
-    text :name, :default_boost => 2.0
-    text :description
+    integer :id, :stored => true
+    text :name, :default_boost => 2.0, :stored => true
+    text :description, :stored => true
     text :instructions
     text :ingredients
   end

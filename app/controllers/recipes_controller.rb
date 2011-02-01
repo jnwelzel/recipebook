@@ -7,17 +7,13 @@ class RecipesController < ApplicationController
   # GET /recipes.xml
   def index
     if(!params[:q].nil?)
-      @recipes = Recipe.solr_search do |s|
+      @hits = Recipe.solr_search do |s|
                    s.keywords params[:q]
+                   s.paginate(:page => params[:page], :per_page => 5)
                  end
-      @recipes = @recipes.results
+      render "solr_search_results"
     else
       @recipes = current_user.recipes
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @recipes }
     end
   end
 

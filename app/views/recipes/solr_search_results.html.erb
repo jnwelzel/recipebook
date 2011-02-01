@@ -1,0 +1,20 @@
+<h1>Listing recipes (<%= @hits.hits.count %>)</h1>
+<% if @hits.hits.count > 0 %>
+
+  <div class="pagination" style="margin-bottom: 10px;">
+    <%= will_paginate(@hits.hits) %>
+  </div>
+
+  <% @hits.each_hit_with_result do |hit, recipe| %>
+    <div class="success">
+      <h3><%= link_to recipe.name, recipe_path(hit.stored(:id)) %></h3>
+      <p><%= recipe.description %></p>
+    </div>
+  <% end %>
+  
+  <div class="pagination">
+    <%= will_paginate(@hits.hits) %>
+  </div>
+<% else %>
+  <div class="notice">No Recipes found, sorry.</div>
+<% end %>
