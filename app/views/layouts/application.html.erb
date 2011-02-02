@@ -14,31 +14,40 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container showgrid">
   <header>
-    <div class="span-17">
-      <ul class="hmenu">
-        <%= link_to 'Home', '/' %>
-        |
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
-      </ul>
-    </div>
+    <div class="span-24">
+      <div class="span-17">
+        <ul class="hmenu">
+          <%= link_to 'Home', '/' %>
+          |
+          <%= render 'devise/menu/registration_items' %>
+          <%= render 'devise/menu/login_items' %>
+        </ul>
+      </div>
 
-    <div class="span-7 last">
-      <%= render 'recipes/search_form' %>
+      <div class="span-7 last">
+        <%= render 'recipes/search_form' %>
+      </div>
     </div>
   </header>
   
-  <% if notice %>
-    <p class="info"><%= notice %></p>
-  <% end %>
-  
-  <% if alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
-  
-  <%= yield %>
+  <div class="span-24">
+    <div class="span-7">
+      <%= render 'tags/global_tag_cloud' %>
+    </div>
+    <div class="span-17 last">
+      <% if notice %>
+        <p class="info"><%= notice %></p>
+      <% end %>
+      
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
 </body>

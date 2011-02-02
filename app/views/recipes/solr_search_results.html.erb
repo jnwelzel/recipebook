@@ -9,6 +9,7 @@
     <div class="success">
       <h3><%= link_to recipe.name, recipe_path(hit.stored(:id)) %></h3>
       <p><%= recipe.description %></p>
+      <p><%= hit.score %></p>
     </div>
   <% end %>
   
