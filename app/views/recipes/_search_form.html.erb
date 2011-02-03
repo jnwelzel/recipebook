@@ -1,4 +1,4 @@
-<%= form_tag(recipes_path, :method => :get) do %>
-  <%= text_field_tag(:q, params[:q]) %>
+<%= form_tag(recipes_path, :method => :get, :class => "append-bottom") do %>
+  <%= text_field_tag(:q, params[:q], :class => "search-input") %>
   <%= submit_tag("Search") %>
 <% end %>

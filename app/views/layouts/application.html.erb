@@ -7,6 +7,7 @@
   <![endif]-->
   <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+  <%= stylesheet_link_tag 'blueprint/plugins/fancy-type/screen', :media => 'screen' %>
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
@@ -14,39 +15,36 @@
 </head>
 <body>
 
-<div class="container showgrid">
-  <header>
-    <div class="span-24">
-      <div class="span-17">
-        <ul class="hmenu">
-          <%= link_to 'Home', '/' %>
-          |
-          <%= render 'devise/menu/registration_items' %>
-          <%= render 'devise/menu/login_items' %>
-        </ul>
-      </div>
-
-      <div class="span-7 last">
-        <%= render 'recipes/search_form' %>
-      </div>
-    </div>
-  </header>
+<div class="container ">
+  <div class="span-24" id="header">
+    <ul class="hmenu">
+      <%= link_to 'Home', '/' %>
+      |
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
+  </div>
   
-  <div class="span-24">
-    <div class="span-7">
-      <%= render 'tags/global_tag_cloud' %>
-    </div>
-    <div class="span-17 last">
-      <% if notice %>
-        <p class="info"><%= notice %></p>
-      <% end %>
-      
-      <% if alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-      
-      <%= yield %>
-    </div>
+  <div class="span-18 border" id="content">
+    <% if notice %>
+      <p class="info"><%= notice %></p>
+    <% end %>
+    
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    
+    <%= yield %>
+  </div>
+  
+  <div class="span-6 last" id="right-side-bar">
+    <%= render 'recipes/search_form' %>
+  
+    <%= render 'tags/global_tag_cloud' %>
+    
+    <% if current_user %>
+      <%= render 'tags/my_tag_cloud' %>
+    <% end %>
   </div>
 </div>
 

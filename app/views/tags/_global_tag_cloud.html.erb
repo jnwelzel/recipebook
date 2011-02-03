@@ -1,5 +1,7 @@
-<h2>Tag cloud </h2>
-<% tag_cloud(@tags, %w(tag4 tag3 tag2 tag1)) do |tag, css_class| %>
-  <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+<h3 class="caps">Global Tag cloud </h3>
+<div class="box">
+<% tag_cloud($tags, %w(tag4 tag3 tag2 tag1)) do |tag, css_class| %>
+  <%= link_to tag.name, tag_path(tag.name, :global => "true"), :class => css_class %>
 <% end %>
+</div>
 

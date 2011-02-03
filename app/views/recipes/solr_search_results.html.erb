@@ -1,4 +1,5 @@
-<h1>Listing recipes (<%= @hits.hits.count %>)</h1>
+<h2>Listing recipes (<%= @hits.hits.count %>)</h2>
+<p class="quiet"><%= @hits.total %> result(s)</p>
 <% if @hits.hits.count > 0 %>
 
   <div class="pagination" style="margin-bottom: 10px;">
@@ -9,7 +10,6 @@
     <div class="success">
       <h3><%= link_to recipe.name, recipe_path(hit.stored(:id)) %></h3>
       <p><%= recipe.description %></p>
-      <p><%= hit.score %></p>
     </div>
   <% end %>
   
