@@ -7,9 +7,10 @@
   </div>
 
   <% @hits.each_hit_with_result do |hit, recipe| %>
-    <div class="success">
-      <h3><%= link_to recipe.name, recipe_path(hit.stored(:id)) %></h3>
-      <p><%= recipe.description %></p>
+    <%= link_to recipe.name, recipe_path(hit.stored(:id)), :class => "tabling" %><br/>
+    <div class="recipe-container span-17">
+      <%= image_tag recipe.photo.url(:thumb), :class => "left" %>
+      <p class="push-1"><%= recipe.description %></p>
     </div>
   <% end %>
   
