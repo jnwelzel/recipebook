@@ -1,3 +1,4 @@
+<h1>Listing my tags (<%= @tags.length %>)</h1>
 <% @tags.each do |t| %>
   <%= link_to t.name, tag_path(t.name) %>
 <% end %>

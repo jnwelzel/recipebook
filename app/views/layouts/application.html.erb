@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container showgrid">
   <div class="span-24" id="header">
     <ul class="hmenu">
       <%= link_to 'Home', '/' %>
@@ -25,7 +25,7 @@
     </ul>
   </div>
   
-  <div class="span-18 border" id="content">
+  <div class="span-18" id="content">
     <% if notice %>
       <p class="info"><%= notice %></p>
     <% end %>
@@ -46,6 +46,21 @@
       <%= render 'tags/my_tag_cloud' %>
     <% end %>
   </div>
+  
+  <hr/>
+  
+  <div class="span-11 colborder">
+    Some stuff here...
+    <br/>
+    It'll be great
+  </div>
+  
+  <div class="span-12 last">
+    Some more stuff here...
+    <br/>
+    Awesome!
+  </div>
+  
 </div>
 
 </body>
