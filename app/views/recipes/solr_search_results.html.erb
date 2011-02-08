@@ -7,23 +7,23 @@
   </div>
 
   <% @hits.each_hit_with_result do |hit, recipe| %>
-    <%= link_to recipe.name, recipe_path(hit.stored(:id)), :class => "tabling" %><br/>
+    <div style="color:#fff;"><%= link_to recipe.name, recipe_path(hit.stored(:id)), :class => "tabling" %></div>
     <div class="recipe-container span-17">
       <div class="span-3 border">
         <%= image_tag recipe.photo.url(:thumb) %>
       </div>
-      <div class="span-14 last">
-        Description: <%= recipe.description %>
+      <div class="span-14 last" style="color:#40331E;">
+        <b>Description:</b> <%= recipe.description %>
         <br/>
-        Ingredients: <%= recipe.ingredients %>
+        <b>Ingredients:</b> <%= recipe.ingredients %>
         <br/>
-        Preparation time: <%= recipe.preparation_time %> minutes(s)
+        <b>Preparation time:</b> <%= recipe.preparation_time %> minutes(s)
         <br/>
-        Servings: <%= recipe.servings %>
+        <b>Servings:</b> <%= recipe.servings %>
         <br/>
-        Ingredients: <%= recipe.ingredients %>
+        <b>Ingredients:</b> <%= recipe.ingredients %>
         <br/>
-        Tags:
+        <b>Tags:</b>
         <% recipe.tag_list.each do |t| %>
           <%= link_to t, tag_path(t) %>
         <% end %>

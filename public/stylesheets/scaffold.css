@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; /*background: url("../images/main-bg.png") repeat scroll center top transparent;*/ }
+body { background-color: #fff; color: #333; background: url("../images/main-bg.jpg") repeat scroll center top transparent; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -13,8 +13,8 @@ pre {
 }
 
 a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#ccc; }
+/*a:visited { color: #666; }*/
+/*a:hover { color: #fff; background-color:#ccc; }*/
 
 div.field, div.actions {
   margin-bottom: 10px;

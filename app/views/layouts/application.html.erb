@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div class="container showgrid">
+<div class="container">
   <div class="span-24" id="header">
     <ul class="hmenu">
       <%= link_to 'Home', '/' %>
@@ -40,14 +40,18 @@
   <div class="span-6 last" id="right-side-bar">
     <%= render 'recipes/search_form' %>
   
+    <% if !user_signed_in? %>
+      <%= render 'devise/sessions/global_signin' %>
+    <% end %>
+  
     <%= render 'tags/global_tag_cloud' %>
     
-    <% if current_user %>
+    <% if user_signed_in? %>
       <%= render 'tags/my_tag_cloud' %>
     <% end %>
   </div>
   
-  <hr/>
+  <hr style=""/>
   
   <div class="span-11 colborder">
     Some stuff here...
