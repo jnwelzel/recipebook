@@ -5,7 +5,9 @@
 
 .search-input {width:10.5em;}
 
-/*#header { background: -moz-linear-gradient(270deg, #FCFCFC, #ECECEC) repeat scroll 0 0 transparent; border-color: #E9E9E9 #E9E9E9 #F5F5F5; border-style: solid; border-width: 1px; -moz-border-radius: 5px; -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);}*/
+#header {background:url("/images/sharkskin.gif") repeat-x scroll -70% 0 #434950;height:60px;color:#fff;width:100%;margin-bottom:30px;-moz-box-shadow:0 1px 5px black;}
+#header-inner {margin:0 auto;padding:15px 0;width:940px;}
+#header a {color:#CCC;}
 
 .tabling {background-color:#8F6F0F;-moz-border-radius:5px 5px 0 0;color:#FFF;padding:0.1em;text-decoration:none;}
 .tabling a:hover {}

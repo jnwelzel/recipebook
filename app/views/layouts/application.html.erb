@@ -15,16 +15,23 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="span-24" id="header">
+<div id="header">
+  <div id="header-inner">
+    <div style="float:left;">
     <ul class="hmenu">
       <%= link_to 'Home', '/' %>
       |
       <%= render 'devise/menu/registration_items' %>
       <%= render 'devise/menu/login_items' %>
     </ul>
+    </div>
+    <div style="float:right;">
+    <%= render 'recipes/search_form' %>
+    </div>
   </div>
-  
+</div>
+
+<div class="container">
   <div class="span-18" id="content">
     <% if notice %>
       <p class="info"><%= notice %></p>
@@ -38,8 +45,6 @@
   </div>
   
   <div class="span-6 last" id="right-side-bar">
-    <%= render 'recipes/search_form' %>
-  
     <% if !user_signed_in? %>
       <%= render 'devise/sessions/global_signin' %>
     <% end %>
