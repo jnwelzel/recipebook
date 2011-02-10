@@ -5,10 +5,10 @@
 
 .search-input {width:10.5em;}
 
-#header {background:url("/images/sharkskin.gif") repeat-x scroll -70% 0 #434950;height:60px;color:#fff;width:100%;margin-bottom:30px;-moz-box-shadow:0 1px 5px black;}
+#header {background:url("/images/sharkskin.gif") repeat-x scroll -70% 0 #434950;height:60px;color:#fff;width:100%;margin-bottom:30px;}
 #header-inner {margin:0 auto;padding:15px 0;width:940px;}
 #header a {color:#CCC;}
 
-.tabling {background-color:#8F6F0F;-moz-border-radius:5px 5px 0 0;color:#FFF;padding:0.1em;text-decoration:none;}
+.tabling {background-color:#BBB;-moz-border-radius:5px 5px 0 0;color:#FFF;padding:0.1em;text-decoration:none;}
 .tabling a:hover {}
-.recipe-container {background:#F5F0DE;color:#3B2E1D;border-color:#8F6F0F;-moz-border-radius:0 5px 5px 5px;-webkit-border-radius:0 5px 5px 5px;}
+.recipe-container {background:#FFFFFF;color:#3B2E1D;border:1px solid #BBB;-moz-border-radius:0 5px 5px 5px;-webkit-border-radius:0 5px 5px 5px;}

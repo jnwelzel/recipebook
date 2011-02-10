@@ -45,10 +45,6 @@
   </div>
   
   <div class="span-6 last" id="right-side-bar">
-    <% if !user_signed_in? %>
-      <%= render 'devise/sessions/global_signin' %>
-    <% end %>
-  
     <%= render 'tags/global_tag_cloud' %>
     
     <% if user_signed_in? %>
